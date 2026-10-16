@@ -189,7 +189,7 @@ django-blog-app/
 
 ## License
 
-TODO: Specify project license (e.g., MIT, Apache 2.0, or proprietary).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
