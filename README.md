@@ -5,7 +5,7 @@ A simple blog web application built with Django and Python.
 [![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Django](https://img.shields.io/badge/Django-6.1%2B-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
 [![Tests](https://github.com/alejandrolopezj/django-blog-app/actions/workflows/tests.yml/badge.svg)](https://github.com/alejandrolopezj/django-blog-app/actions/workflows/tests.yml)
-[![Test Coverage](https://codecov.io/gh/alejandrolopezj/events-booking-rest-rapi/branch/main/graph/badge.svg)](https://codecov.io/gh/alejandrolopezj/events-booking-rest-api)
+[![Test Coverage](https://codecov.io/gh/alejandrolopezj/django-blog-app/branch/main/graph/badge.svg)](https://codecov.io/gh/alejandrolopezj/django-blog-app)
 
 ## Overview
 
