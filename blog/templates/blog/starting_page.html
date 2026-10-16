@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Alejandro's Blog{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/starting_page.css' %}">
+{% endblock %}
+
+{% block body %}
+<section id="welcome">
+    <header>
+        <img src="https://github.com/alejandrolopezj.png" alt="Alejandro - The author of this blog">
+        <h2>Welcome to<br>Alejandro's Blog</h2>
+    </header>
+    <p>Welcome to my blog, where I share what I learn about Django and software development.</p>
+</section>
+<section id="latest-posts">
+    <h2>Latest Posts</h2>
+    <ul>
+        {% for post in latest_posts %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+<section id="about">
+    <h2>What I Do</h2>
+    <p>
+        I am a Cloud Technical Lead at COPEC, focused on turning complex technical and data challenges into reliable,
+        useful solutions. My work brings together software development, cloud platforms, and data engineering, with
+        Python as one of my main tools.
+    </p>
+    <p>
+        I work with AWS, Google Cloud, Terraform, Kafka, and Tableau to design, build, and improve data-driven systems.
+        In this blog, I share what I learn while building with Django and exploring practical ways to write clearer,
+        more maintainable software. <a href="https://www.linkedin.com/in/alejandrolopezj" target="_blank"
+                                        rel="noopener noreferrer">Connect with me on LinkedIn</a>.
+    </p>
+</section>
+{% endblock %}

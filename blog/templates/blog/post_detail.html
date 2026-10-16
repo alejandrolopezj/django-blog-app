@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Post's Detail{% endblock %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post_detail.css' %}">
+{% endblock %}
+
+{% block body %}
+{% if form.errors %}
+<div id="alert">
+    <h2>There was an error processing your form</h2>
+    <p>Please correct the errors below</p>
+    <a href="#comment-form">Fix</a>
+</div>
+{% endif %}
+<section id="summary">
+    <h2>{{ post.title}}</h2>
+    <div>
+        {% for tag in post.tags.all %}
+        <span class="tag">{{ tag.caption }}</span>
+        {% endfor %}
+    </div>
+    <article>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <address>By <a href="mailto:{{ post.author.email }}">{{ post.author }}</a></address>
+        <div>
+            Last updated on
+            <time>{{ post.date|date:"d M Y" }}</time>
+        </div>
+    </article>
+</section>
+<main>
+    <p>
+        {{ post.content|linebreaks }}
+    </p>
+</main>
+<section id="comments">
+    <ul id="comment-list">
+        {% for comment in post.comments.all %}
+        <li>
+            <h2>{{ comment.user_name }}</h2>
+            <p>{{ comment.text|linebreaks }}</p>
+            <p>{{ comment.date|date:"d M Y" }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+<section id="comment-form">
+    <h3>Comments</h3>
+    <form action="{% url 'blog:post-detail-page' post.slug %}" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-control">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+        <button type="submit">Comment</button>
+    </form>
+</section>
+{% endblock %}
